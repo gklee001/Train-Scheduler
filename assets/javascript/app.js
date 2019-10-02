@@ -20,6 +20,12 @@ $(document).ready(function () {
         var trainData = $(this).serializeArray()
         console.log(trainData);
 
+        var trainName = trainData[0].value;
+        console.log(trainName);
+        var destination = traindata[1].value;
+        var frequency = traindata[3].value;
+        var time = traindata[2].value
+
     });
 
 
