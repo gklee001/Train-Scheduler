@@ -1,7 +1,5 @@
 $(document).ready(function () {
     console.log("ready");
-    var d = new Date(); //without params it defaults to "now"
-    var t = d.getHours() + ":" + d.getMinutes();
 
     var firebaseConfig = {
         apiKey: "AIzaSyDk7FfMFN-PloHbu_7oBE6I-wpNFjMaC8M",
@@ -15,7 +13,7 @@ $(document).ready(function () {
     //initialize firebase------------------------------------->
     firebase.initializeApp(firebaseConfig);
 
-    var database = firebase.database();
+    // var database = firebase.database();
     firebase.database().ref().once('value').then(function (childSnapshot) {
         var items = childSnapshot.val();
         console.log(items)
@@ -41,7 +39,7 @@ $(document).ready(function () {
                 '</tr>'
             $('table tbody').append(template)
 
-            console.log(min); t
+            console.log(min);
         }
 
     })
@@ -60,7 +58,7 @@ $(document).ready(function () {
         console.log(trainName);
         var id = Math.floor(Math.random() * 1000);
         //set new value to firebase
-        database.ref().push({
+        firebase.database().ref().push({
             trainName: trainData[0].value,
             destination: trainData[1].value,
             frequency: trainData[3].value,
